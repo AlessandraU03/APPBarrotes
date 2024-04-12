@@ -49,7 +49,6 @@ public class Producto_PlusS extends Producto {
                     peticion = "Ingrese el Precio del producto: ";
                     break;
                 case 4:
-                    int precio = Integer.parseInt(dato);
                     objProducto_PlusS.setPrecio(precio);
                     bucleFor = false;
                     break;
@@ -70,6 +69,7 @@ public class Producto_PlusS extends Producto {
             }
 
         }
+        imprimirDatos();
 
         return objProducto_PlusS;
     }

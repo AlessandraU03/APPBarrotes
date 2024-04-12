@@ -56,7 +56,6 @@ public class Producto_PlusVS extends Producto {
                     peticion = "Ingrese el Precio del producto: ";
                     break;
                 case 5:
-                    int precio = Integer.parseInt(dato);
                     objProducto_PlusVS.setPrecio(precio);
                     bucleFor = false;
                     break;

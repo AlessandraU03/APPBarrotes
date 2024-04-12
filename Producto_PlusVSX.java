@@ -138,7 +138,7 @@ public class Producto_PlusVSX extends Producto{
         Producto_PlusVSX objProducto_PlusVSX = new Producto_PlusVSX();
         boolean bucleFor = true;
 
-        for (int i = 0; i < 5 || bucleFor; i++) {
+        for (int i = 0; i < 6 || bucleFor; i++) {
             String peticion = "";
             String dato = "";
             boolean bucleDatosPersonalizsdos = true;
@@ -156,10 +156,14 @@ public class Producto_PlusVSX extends Producto{
                     peticion = "Ingrese el Sabor del producto: ";
                     break;
                 case 3:
+                    objProducto_PlusVSX.setPrecio(precio);
+                    bucleFor = false;
+                    break;
+                case 4:
                     objProducto_PlusVSX.setSabor(dato);   
                     peticion = "Ingrese los Datos Personalizados del producto: ";
                     break;
-                case 4:
+                case 5:
 
                     for (String n : objProducto_PlusVSX.getPersonalizado()) {
                         if (n.equals(dato)) {

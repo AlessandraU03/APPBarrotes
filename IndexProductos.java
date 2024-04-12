@@ -76,12 +76,13 @@ public class IndexProductos {
         Scanner leerTeclado = new Scanner(System.in);
         String respuesta = "";
         int respuestaInt = 0;
-        boolean continuar = true; // Variable para controlar si se debe continuar con el bucle principal
+
     
         do {
-            try {
-    
-                System.out.println("=== SELECCIÓN ===");
+
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("=== SELECCION ===");
                 System.out.println("¿Qué datos son relevantes para el producto que desea agregar?");
                 System.out.println("(Excluyendo Marca, Nombre y Precio)");
                 System.out.println("1.- Volumen");
@@ -171,35 +172,12 @@ public class IndexProductos {
                     leerTeclado.nextLine();
                 }
     
-            } catch (Exception e) {
-                // Manejo de otras excepciones no previstas
-                System.out.println(" ");
-                System.out.println("=== ERROR ===");
-                System.out.println("Se ha producido un error inesperado.");
-                System.out.println(" ");
-            }
-    
-            // Preguntar al usuario si desea agregar otro producto
-            do {
-                System.out.println(" ");
-                System.out.print("¿Desea agregar otro producto? (s/n): ");
-                respuesta = leerTeclado.next();
-    
-                if (!(respuesta.equals("s") || respuesta.equals("n"))) {
-                    System.out.println(" ");
-                    System.out.println("=== ERROR ===");
-                    System.out.println("Debe ingresar 's' para sí o 'n' para no.");
-                    System.out.println(" ");
-    
-                } else if (respuesta.equals("n")) {
-                    continuar = false; // Si la respuesta es 'n', se detiene el bucle principal
-                }
-    
-            } while (!(respuesta.equals("s") || respuesta.equals("n")));
-    
-        } while (continuar); // Continuar con el bucle principal mientras 'continuar' sea verdadero
-    
-        leerTeclado.close();
+                do {
+                    System.out.print("¿Desea agregar otro producto? (s/n): ");
+                    respuesta = leerTeclado.nextLine();
+                } while (!respuesta.equalsIgnoreCase("s") && !respuesta.equalsIgnoreCase("n"));
+        
+            } while (respuesta.equalsIgnoreCase("s"));
     }
     
 
@@ -226,7 +204,6 @@ public class IndexProductos {
                 return;
             }
 
-            // Buscar el producto en la lista y eliminarlo si se encuentra
             productoEliminar = null;
             for (Producto producto : listaProductos) {
                 if (producto.getNombre().equals(nombreEliminar)) {
@@ -249,23 +226,11 @@ public class IndexProductos {
             }
 
             do {
-                System.out.println(" ");
                 System.out.print("¿Desea eliminar otro producto? (s/n): ");
                 respuesta = leerTeclado.nextLine();
-
-                if (!(respuesta.equals("s") || respuesta.equals("n"))) {
-                    System.out.println(" ");
-                    System.out.println("=== ERROR ===");
-                    System.out.println("Valor no válido");
-                    System.out.println(" ");
-
-                }
-
-            } while (!(respuesta.equals("s") || respuesta.equals("n")));
-
-        } while (respuesta.equals("s"));
-
-        leerTeclado.close();
+            } while (!respuesta.equalsIgnoreCase("s") && !respuesta.equalsIgnoreCase("n"));
+    
+        } while (respuesta.equalsIgnoreCase("s"));
     }
 
 
@@ -274,7 +239,6 @@ public class IndexProductos {
         Producto productoModificar = null;
         String nombreModificar = "";
         String respuesta = "";
-        boolean bucle = true;
 
         do {
             System.out.println(" ");
@@ -315,23 +279,11 @@ public class IndexProductos {
             }
 
             do {
-                System.out.println(" ");
                 System.out.print("¿Desea modificar otro producto? (s/n): ");
                 respuesta = leerTeclado.nextLine();
-
-                if (!(respuesta.equals("s") || respuesta.equals("n"))) {
-                    System.out.println(" ");
-                    System.out.println("=== ERROR ===");
-                    System.out.println("Valor no válido");
-                    System.out.println(" ");
-
-                }
-
-            } while (!(respuesta.equals("s") || respuesta.equals("n")));
-
-        } while (respuesta.equals("s"));
-
-        leerTeclado.close();
+            } while (!respuesta.equalsIgnoreCase("s") && !respuesta.equalsIgnoreCase("n"));
+    
+        } while (respuesta.equalsIgnoreCase("s"));
     }
 
     public void buscarProducto() {
@@ -364,28 +316,11 @@ public class IndexProductos {
             }
     
             do {
-                System.out.println(" ");
-                System.out.print("¿Desea buscar otro producto?(s/n): ");
+                System.out.print("¿Desea agregar otro producto? (s/n): ");
                 respuesta = leerTeclado.nextLine();
+            } while (!respuesta.equalsIgnoreCase("s") && !respuesta.equalsIgnoreCase("n"));
     
-                if (!(respuesta.equals("s") || respuesta.equals("n"))) {
-                    System.out.println(" ");
-                    System.out.println("=== ERROR ===");
-                    System.out.println("Valor no válido");
-                    System.out.println(" ");
-                }
-    
-            } while (!(respuesta.equals("s") || respuesta.equals("n")));
-    
-            if (respuesta.equals("s")) {
-                bucle = true;
-            } else {
-                bucle = false;
-            }
-    
-        } while (bucle);
-    
-        leerTeclado.close();
+        } while (respuesta.equalsIgnoreCase("s"));
     }
     
 

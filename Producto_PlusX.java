@@ -95,7 +95,6 @@ public class Producto_PlusX extends Producto {
                     }
                     break;
                 case 4:
-                    int precio = Integer.parseInt(dato);
                     objProducto_PlusX.setPrecio(precio);
                     bucleFor = false;
                     break;

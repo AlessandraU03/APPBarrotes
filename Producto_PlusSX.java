@@ -101,7 +101,6 @@ public class Producto_PlusSX extends Producto {
                     }
                     break;
                 case 5:
-                    int precio = Integer.parseInt(dato);
                     objProducto_PlusSX.setPrecio(precio);
                     bucleFor = false;
                     break;
@@ -122,6 +121,7 @@ public class Producto_PlusSX extends Producto {
             }
 
         }
+        imprimirDatos();
 
         return objProducto_PlusSX;
     }
