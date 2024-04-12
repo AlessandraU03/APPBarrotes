@@ -23,19 +23,15 @@ public class IndexProductos {
 
         do {
             bucle = true;
-
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println("_MENU PRODUCTOS_");
-            System.out.println(" ");
+            System.out.println("\n=== MENÚ DE PRODUCTOS ===");
             System.out.println("1.- Añadir Producto");
             System.out.println("2.- Eliminar Producto");
             System.out.println("3.- Modificar Producto");
             System.out.println("4.- Buscar Producto");
-            System.out.println("5.- Imprimir Lista Productos");
-            System.out.println("6.- REGRESAR");
-            System.out.println(" ");
-            System.out.print("¿Qué desea hacer?: ");
+            System.out.println("5.- Imprimir Lista de Productos");
+            System.out.println("6.- SALIR");
+
+            System.out.print("Ingrese el número de la opción que desea realizar: ");
             try {
                 respuesta = leerTeclado.nextInt();
                 switch (respuesta) {
@@ -67,7 +63,7 @@ public class IndexProductos {
             } catch (InputMismatchException e) {
                 System.out.println(" ");
                 System.out.println("=== ERROR ===");
-                System.out.println("Debe ingresar un número entero válido.");
+                System.out.println("Por favor, ingrese un número entero válido.");
                 System.out.println(" ");
                 leerTeclado.nextLine(); // Limpiar el buffer del scanner
             }

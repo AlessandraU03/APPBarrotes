@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -75,7 +74,7 @@ public class GestorProveedores {
     
         do {
             Proveedor objProveedor = new Proveedor();
-            String peticion = "Ingrese el nombre del proveedor: ";
+            String peticion = "Ingrese el nombre del proveedor y el producto que surte: ";
             String dato;
     
             System.out.println("\n(___Escriba 'exit' para cancelar la operación___)");
@@ -91,8 +90,8 @@ public class GestorProveedores {
     
             objProveedor.setNombre(dato);
     
-            for (int i = 0; i < 3; i++) {
-                String[] inputs = {"contacto", "horarios", "producto"};
+            for (int i = 0; i < 2; i++) {
+                String[] inputs = {"contacto", "horarios"};
     
                 System.out.println("\n(___Escriba 'exit' para cancelar la operación___)");
                 peticion = "Ingrese el " + inputs[i] + " del proveedor: ";
@@ -115,11 +114,6 @@ public class GestorProveedores {
                         dato = scanner.nextLine();
                         String[] horarios = dato.split(",");
                         objProveedor.setHorarios(horarios);
-                        break;
-                    case 2:
-                        String productoNombre = scanner.nextLine();
-                        Producto nuevoProducto = new Producto();
-                        nuevoProducto.setNombre(productoNombre);
                         break;
                 }
             }
@@ -244,12 +238,6 @@ public class GestorProveedores {
                     proveedor.setContacto(nuevoContacto);
                     proveedor.setHorarios(new String[]{nuevoDia});
                     
-                    // Modificar el producto existente
-                    System.out.println("Ingrese el nombre del nuevo producto que provee el proveedor:");
-                    String ProductoNombre = scanner.nextLine();
-                    Producto productoExistente = proveedor.getListaProductos().get(0); 
-                    productoExistente.setNombre(ProductoNombre);
-                    
                     System.out.println("Proveedor modificado correctamente.");
                     break;
                 }
@@ -300,7 +288,6 @@ public class GestorProveedores {
                     System.out.println("Proveedor encontrado:");
                     System.out.println("Nombre: " + proveedor.getNombre());
                     System.out.println("Contacto: " + proveedor.getContacto());
-                    System.out.println("Productos: " + proveedor.getListaProductos());
                     System.out.print("Días de disponibilidad: ");
                     String[] horarios = proveedor.getHorarios();
                     for (int j = 0; j < horarios.length; j++) {
@@ -342,12 +329,8 @@ public class GestorProveedores {
         }
         System.out.println("Proveedores:");
         for (Proveedor proveedor : proveedores) {
-            System.out.println("Nombre: " + proveedor.getNombre());
+            System.out.println("Nombre y producto: " + proveedor.getNombre());
             System.out.println("Contacto: " + proveedor.getContacto());
-            System.out.println("Productos:");
-            for (Producto producto : proveedor.getListaProductos()) {
-                System.out.println("- " + producto.getNombre());
-            }
             System.out.print("Días de disponibilidad: ");
             String[] horarios = proveedor.getHorarios();
             for (int j = 0; j < horarios.length; j++) {
